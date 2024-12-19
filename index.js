@@ -18,7 +18,7 @@ app.get('/dl', async (req, res) => {
 
     // Validate the URL
     if (!isValidUrl(url)) {
-        return res.status(400).json({ error: 'Invalid URL.' });
+        return res.status(400).json({ error: 'Invalid URL.support url: facebook, tiktok, twitter, instagram, youtube, pinterest, gdrive, capcut, likee, threads' });
     }
 
     try {
