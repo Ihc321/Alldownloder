@@ -38,7 +38,7 @@ app.get('/dl', async (req, res) => {
         }
 
         return res.json({ 
-            developer: "Farhan",
+            developer: "F",
             devfb: "https://www.facebook.com/Imon.132233?mibextid=ZbWKwL",
             devwp: "wa.me/+8801318582357",
             status: "true",
