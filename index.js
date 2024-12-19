@@ -1,5 +1,5 @@
 const express = require('express');
-const nayan = require('imon-videos-downloader'); // Ensure the correct package is used
+const nayan = require('imon-videos-downloader'); // Ensure this package is correct
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +18,13 @@ app.get('/dl', async (req, res) => {
 
     // Validate the URL
     if (!isValidUrl(url)) {
-        return res.status(400).json({ error: 'Invalid URL.support url: facebook, tiktok, twitter, instagram, youtube, pinterest, gdrive, capcut, likee, threads' });
+        return res.status(400).json({
+            developer: "Farhan",
+            devfb: "https://www.facebook.com/Imon.132233?mibextid=ZbWKwL",
+            devwp: "wa.me/+8801318582357",
+            status: "true",
+            error: "Invalid URL. Supported URLs: facebook, tiktok, twitter, instagram, youtube, pinterest, gdrive, capcut, likee, threads"
+        });
     }
 
     try {
@@ -27,27 +33,32 @@ app.get('/dl', async (req, res) => {
 
         // Ensure data is valid
         if (!data || !data.data) {
-            return res.status(404).json({ error: 'Media not found.' });
+            return res.status(404).json({ 
+                error: 'Media not found.' 
+            });
         }
 
         // Destructure and handle media URLs properly
         const { low, high, title } = data.data;
 
         if (!low || !high) {
-            return res.status(404).json({ error: 'No media quality options found.' });
+            return res.status(404).json({
+                error: 'No media quality options found.' 
+            });
         }
 
-        return res.json({ 
+        return res.json({
             developer: "Farhan",
             devfb: "https://www.facebook.com/Imon.132233?mibextid=ZbWKwL",
             devwp: "wa.me/+8801318582357",
             status: "true",
-            data: { title, low, high },
-        }); 
-         // Return media data as JSON response
+            data: { title, low, high }
+        });
     } catch (error) {
         console.error('Error fetching media:', error.message || error);
-        return res.status(500).json({ error: 'Failed to download media.' });
+        return res.status(500).json({ 
+            error: 'Failed to download media.' 
+        });
     }
 });
 
